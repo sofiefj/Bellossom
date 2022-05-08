@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jan 25 08:24:31 2022
+
+@author: Sofie
+"""
+
 # Importere pandas
 import pandas as pd
 
