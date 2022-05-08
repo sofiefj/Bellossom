@@ -4,9 +4,8 @@ Created on Fri Mar  4 12:22:01 2022
 
 @author: Sofie
 """
-# Dette skriptet er en tilpasset versjon av hoggorm-pakken.
-# Koden til hoggorm er tilgjengelig fra: https://github.com/olivertomic/hoggorm
 
+# Koden til hoggorm er tilgjengelig fra https://github.com/olivertomic/hoggorm
 
 # Importere nødvendige pakker
 import hoggorm as ho
@@ -48,6 +47,6 @@ sns.heatmap(res_p, annot = True)
 rv_results_stand_c = ho.RVcoeff([standc16, standc32])
 res_c = pd.DataFrame(rv_results_stand_c)
 label = ['16', '32']
-res.columns = label
-res.index = label
+res_c.columns = label
+res_c.index = label
 sns.heatmap(res, annot = True)
