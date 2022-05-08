@@ -32,34 +32,21 @@ CT_df = CT_df_w.T.drop_duplicates(keep = 'first').T
 PET_df = pd.concat([PET_8, PET_4], axis=1)
 PET_df = PET_df.T.drop_duplicates(keep = 'first').T
 
-# importere kliniske data 
-klin_df = pd.read_csv('data/clin_ous.csv.xlsx')
+# importere kliniske data og endre index
+klin_df = pd.read_csv('clin_ous.csv')
+klin_df = klin_df.set_index(('patient_id'))
 
-# importere pet-parametere
+# importere PET-parametere og endre index
 pet_params_df = pd.read_excel('data/tabular_data/ous/pet_parameters_ous.xlsx')
 pet_params_df = pd.DataFrame(pet_params_df)
 pet_params_df = pet_params_df.set_index(('patient_id'))
 
-# Sette ny index for PET og CT, og eksportere til csv-fil
+# Sette ny index for PET_df og CT_df
 CT_df = CT_df.set_index((pet_params_df.index))
-CT_df.iloc[:,14:].to_csv('C:/Users/Sofie/Documents/Masteroppgave/CT_df.csv')
 PET_df = PET_df.set_index((pet_params_df.index))
-PET_df.iloc[:,14:].to_csv('C:/Users/Sofie/Documents/Masteroppgave/PET_df.csv')
-klin_df.to_csv('C:/Users/Sofie/Documents/Masteroppgave/klin_df.csv')
-pet_params_df.to_csv('C:/Users/Sofie/Documents/Masteroppgave/pet_params_df.csv')
 
-pet_pluss_params = pd.concat([PET_df.iloc[:,14:], pet_params_df], axis = 1)
-pet_pluss_params.to_csv('C:/Users/Sofie/Documents/Masteroppgave/pet_pluss_params.csv')
-# Sette sammen til fullt datasett
+# Sette sammen til fullt datasett og lagre som csv
 full_df =  pd.concat([CT_df, PET_df, pet_params_df, klin_df], axis=1)
 full_df = full_df.T.drop_duplicates().T
 
-# Imputasjon - endrer ikke resultatene
-#from sklearn.impute import SimpleImputer
-#imp=SimpleImputer(missing_values=np.NaN)
-#idf=pd.DataFrame(imp.fit_transform(full_df))
-#idf.columns=full_df.columns
-#idf.index=full_df.index
-
-
-full_df.to_csv('C:/Users/Sofie/Documents/Masteroppgave/testdatasett.csv')
+full_df.to_csv('fullt_datasett_ous.csv')
