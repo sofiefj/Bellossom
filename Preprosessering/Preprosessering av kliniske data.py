@@ -14,3 +14,6 @@ klin_df = klin_df.drop(['ecog'], axis=1)
 # Fylle manglende verdier av hpv_related og uicc8_III-IV med verdien 2.
 klin_df['hpv_related'] = klin_df['hpv_related'].fillna(2)
 klin_df['uicc8_III-IV'] = klin_df['uicc8_III-IV'].fillna(2)
+
+# Lagre preprosessert klinisk data i csv-fil
+klin_df.to_csv('clin.csv')
