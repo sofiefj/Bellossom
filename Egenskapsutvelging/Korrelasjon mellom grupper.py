@@ -4,7 +4,7 @@ Created on Fri Mar  4 12:22:01 2022
 
 @author: Sofie
 """
-
+# Denne koden benytter pakken hoggorm til beregning av en RV-matrise.
 # Koden til hoggorm er tilgjengelig fra https://github.com/olivertomic/hoggorm
 
 # Importere nødvendige pakker
