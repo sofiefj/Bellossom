@@ -4,12 +4,12 @@ Created on Mon Jan 24 08:22:21 2022
 
 @author: Sofie
 """
+
 # Importere pandas
 import pandas as pd
 
 
 # Importere datasett
-
 CT_16 = pd.DataFrame(pd.read_csv('C:/Users/Sofie/Documents/GitHub/imskaper/features_extraction/CT_16_w.csv'))
 PET_4 = pd.DataFrame(pd.read_csv('C:/Users/Sofie/Documents/GitHub/imskaper/features_extraction/PET_4.csv'))
 PET_8 = pd.DataFrame(pd.read_csv('C:/Users/Sofie/Documents/GitHub/imskaper/features_extraction/PET_8.csv'))
