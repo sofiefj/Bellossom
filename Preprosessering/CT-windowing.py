@@ -26,7 +26,7 @@ for filename in os.listdir(directory):
     if os.path.isfile(f):
         img = nib. load(directory+'/'+filename)
         data = img. get_data()
-        data=data-1024
+        data=data-1024 # Konvertere til HU
         
         data=np.where(data >= width/2+center, width/2+center, data)
         data=np.where(data<=-width/2+center, -width/2+center, data)
